@@ -36,4 +36,24 @@ def fetch_steam_data(app_id):
     except Exception as e:
         print(f"Error fetching data: {e}")
         return []
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/api/data')
+def get_data():
+    app_id = request.args.get('app_id', '1245620') # Default Steam Game ID
+    data = fetch_steam_data(app_id)
+    return jsonify(data)
+
+@app.route('/api/search')
+def search_game():
+    query = request.args.get('q', '')
+    if len(query) < 3:
+        return jsonify([])
+    
+    url = f"https://store.steampowered.com/api/storesearch/?term={query}&l=english&cc=US"
+
+
         
