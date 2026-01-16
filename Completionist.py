@@ -55,5 +55,18 @@ def search_game():
     
     url = f"https://store.steampowered.com/api/storesearch/?term={query}&l=english&cc=US"
 
+    try:
+        res = requests.get(url)
+        data = res.json()
+        items = data.get('items', [])
+        results = [{'id': item['id'], 'name': item['name']} for item in items]
+        return jsonify(results)
+    except Exception as e:
+        print(f"Search Error: {e}")
+        return jsonify([])
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 
         
