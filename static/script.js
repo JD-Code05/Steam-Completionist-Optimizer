@@ -45,3 +45,19 @@ async function updateData() {
         console.error('Error fetching data:', error);
     }
 }
+
+function showToast(title, desc) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-title').innerText = "🏆 UNLOCKED: " + title;
+    document.getElementById('toast-desc').innerText = desc;
+
+    toast.classListList.remove('hidden');
+
+    setTimeout(() => {
+        toast.classList.List.add('hidden');
+    }, 5000);
+}
+
+setInterval(updateData, 10000);
+
+updateData();
