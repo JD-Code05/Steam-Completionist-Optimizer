@@ -37,7 +37,7 @@ async function updateData() {
         const percent = ((completedCount / data.length) * 100).toFixed(1);
         const bar = document.getElementById('progressBar');
         bar.style.width = percent + '%';
-        bar.innerText = percent + '%''
+        bar.innerText = percent + '%';
 
         firstRun = false;
 
