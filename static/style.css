@@ -39,3 +39,20 @@ body {
     transform: scale(1.02);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
+.progress-container {
+    background: #000;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    background: #66c0f4;
+    height: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    width: 0%;
+    transition: width 0.5s;
+}
