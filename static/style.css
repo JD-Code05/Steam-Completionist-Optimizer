@@ -22,7 +22,7 @@ body {
 }
 
 .card {
-    background: #171a21:
+    background: #171a21;
     padding: 15px;
     border-radius: 8px;
     border-left: 5px solid #444;
@@ -55,4 +55,21 @@ body {
     font-weight: bold;
     width: 0%;
     transition: width 0.5s;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d4af37;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.toast.hidden {
+    transform: translateY(200%);
 }
