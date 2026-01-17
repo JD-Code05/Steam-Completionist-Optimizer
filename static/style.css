@@ -21,23 +21,54 @@ body {
     margin-bottom: 20px;
 }
 
-.card {
+.achievemen-card {
     background: #171a21;
     padding: 15px;
     border-radius: 8px;
     border-left: 5px solid #444;
 }
 
-.card.completed {
+.achievement-card.completed {
     border-left-color: #66c0f4;
     opacity: 0.6;
 }
 
-.card.recommended {
+.achievement-card.recommended {
     border-left-color: #a4d007; 
     background: #2a3f5a;
     transform: scale(1.02);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+input[type="text"] {
+    background-color: #2a475e;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 10px;
+    width: 60%; /* Adjust width */
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    background-color: #3e6686;
+}
+
+button {
+    background: linear-gradient( to bottom, #a4d007 5%, #536904 95%);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: linear-gradient( to bottom, #b6e608 5%, #6b8705 95%);
 }
 
 .progress-container {
@@ -72,4 +103,24 @@ body {
 
 .toast.hidden {
     transform: translateY(200%);
+}
+
+#searchResults {
+    border: 1px solid #444;
+    max-width: 400px;
+    margin-top: 5px;
+    background: #222;
+    position: absolute;
+    z-index: 1000;
+}
+
+.result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    color: #eee;
+}
+
+.result-item:hover {
+    background-color: #444;
 }

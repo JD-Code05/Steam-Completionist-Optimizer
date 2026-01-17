@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width=devie-width, initial-scale=1.0">
-    <title>Steam Completion Optimizer</title>
-    <link rel = "stylesheet" hhref = "/static/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Completionist Optimizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -17,26 +17,31 @@
                    onkeyup="handleSearch(this.value)"
                    autocomplete="off">
             
-            <div id="searchResults" class="search-dropdown hidden"></div>
+            <button onclick = "searchGames()">Search</button>
+            
+            <div id="searchResults"></div>
 
             <div style="margin-top: 10px; color: #888; font-size: 0.9em;">
-                Currently Tracking: <span id="currentGameName" style="color: #66c0f4; font-weight: bold;">Elden Ring</span>
+                <h3 id = "gameTitle">c</h3>
+                <h3 id="gameTitle">Currently Tracking: <span style="color: #66c0f4;">Elden Ring</span></h3> 
             </div>
         </div>
         
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar">0%</div>
+        <div class = "progress-container">
+            <div class = "progress-bar" id="progressBar" style = "width: 0%;">0%</div>
         </div>
 
         <h2>Optimal Route (Easiest Remaining)</h2>
         <div id="achievement-list" class="grid">
-            </div>
+            <p>Loading...</p>
+        </div>
     </div>
+
     <div id ="toast" class = "toast hidden">
         <h3 id = "toast-title">Achievement Unlocked!</h3>
         <p id = "toast-desc">Description here</p>
     </div>
 
-    <script src = "/static/script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
