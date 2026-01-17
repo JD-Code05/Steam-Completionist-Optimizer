@@ -8,7 +8,6 @@ STEAM_API_KEY = 'YOUR_STEAM_API_KEY_HERE'
 STEAM_USER_ID = 'YOUR_STEAM_64_ID_HERE'
 
 def fetch_steam_data(app_id):
-    """Fetches and merges player data with global rarity."""
     try:
         player_url = f"http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid={app_id}&key={STEAM_API_KEY}&steamid={STEAM_USER_ID}"
         player_res = requests.get(player_url).json()

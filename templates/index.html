@@ -6,4 +6,24 @@
     <title>Steam Completion Optimizer</title>
     <link rel = "stylesheet" hhref = "/static/styles.css">
 </head>
+<body>
+    <div class="container">
+        <h1>Steam Completion Optimizer</h1>
+        
+        <div class="controls">
+            <input type="text" 
+                   id="gameSearchInput" 
+                   placeholder="Search for a game (e.g. 'Cyberpunk')" 
+                   onkeyup="handleSearch(this.value)"
+                   autocomplete="off">
+            
+            <div id="searchResults" class="search-dropdown hidden"></div>
+
+            <div style="margin-top: 10px; color: #888; font-size: 0.9em;">
+                Currently Tracking: <span id="currentGameName" style="color: #66c0f4; font-weight: bold;">Elden Ring</span>
+            </div>
+        </div>
+        
+        
+</body>
 </html>
