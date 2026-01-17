@@ -10,11 +10,10 @@
     <div class="container">
         <h1>Steam Completion Optimizer</h1>
         
-        <div class="controls">
+        <div class="controls" style = "position: relative;">
             <input type="text" 
-                   id="gameSearchInput" 
+                   id="searchInput" 
                    placeholder="Search for a game (e.g. 'Cyberpunk')" 
-                   onkeyup="handleSearch(this.value)"
                    autocomplete="off">
             
             <button onclick = "searchGames()">Search</button>
@@ -22,7 +21,7 @@
             <div id="searchResults"></div>
 
             <div style="margin-top: 10px; color: #888; font-size: 0.9em;">
-                <h3 id = "gameTitle">c</h3>
+                <h3 id = "gameTitle"></h3>
                 <h3 id="gameTitle">Currently Tracking: <span style="color: #66c0f4;">Elden Ring</span></h3> 
             </div>
         </div>
@@ -32,7 +31,7 @@
         </div>
 
         <h2>Optimal Route (Easiest Remaining)</h2>
-        <div id="achievement-list" class="grid">
+        <div id="achievementsList" class="grid">
             <p>Loading...</p>
         </div>
     </div>

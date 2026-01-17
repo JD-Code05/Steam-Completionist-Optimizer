@@ -21,14 +21,15 @@ body {
     margin-bottom: 20px;
 }
 
-.achievemen-card {
+.achievement-card {
     background: #171a21;
     padding: 15px;
     border-radius: 8px;
     border-left: 5px solid #444;
+    overflow: hidden;
 }
 
-.achievement-card.completed {
+.achievement-card.achieved {
     border-left-color: #66c0f4;
     opacity: 0.6;
 }
