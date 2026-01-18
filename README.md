@@ -6,7 +6,7 @@
 A real-time, local web dashboard that tracks your Steam achievement progress. It analyzes global player statistics to suggest the **"Optimal Route"** (easiest achievements first) and provides visual "Toast" notifications when you unlock an achievement in-game.
 
 Built with **Python (Flask)**, **HTML/CSS**, and **JavaScript**.
-
+---
 ## ✨ Features
 
 * **Real-Time Tracking:** Polls the Steam API to detect changes while you play.
@@ -14,7 +14,7 @@ Built with **Python (Flask)**, **HTML/CSS**, and **JavaScript**.
 * **Live Notifications:** A gold popup toast appears on the dashboard the moment an achievement is unlocked.
 * **Game Switcher:** Input any Steam App ID to instantly load data for a different game.
 * **Steam-Themed UI:** Dark mode interface inspired by the Steam client.
-
+---
 ## 🛠️ Prerequisites
 
 Before running the app, you need the following:
@@ -23,7 +23,7 @@ Before running the app, you need the following:
 2.  **Steam Web API Key:** [Get it here](https://steamcommunity.com/dev/apikey).
 3.  **Your Steam ID (64-bit):** [Find it here](https://steamid.io/).
 4.  **Public Profile:** Your Steam Privacy settings for "Game Details" must be set to **Public**.
-
+---
 ## 📦 Installation
 
 1.  **Clone the repository:**
@@ -36,7 +36,7 @@ Before running the app, you need the following:
     ```bash
     pip install flask requests
     ```
-
+---
 ## ⚙️ Configuration
 
 1.  Open `app.py`.
@@ -47,7 +47,7 @@ Before running the app, you need the following:
     STEAM_USER_ID = 'YOUR_STEAM_64_ID_HERE'
     ```
 3.  Replace the placeholders with your actual API Key and Steam User ID.
-
+---
 ## 🚀 How to Run
 
 1.  **Start the server:**
@@ -59,7 +59,7 @@ Before running the app, you need the following:
 3.  **Enter a Game ID:**
     * Find the App ID in the Steam Store URL (e.g., for *Elden Ring*, the URL is `store.steampowered.com/app/1245620`, so the ID is `1245620`).
     * Enter `1245620` into the dashboard and click **Load Game**.
-
+---
 ## 📂 Project Structure
 
 ```text
