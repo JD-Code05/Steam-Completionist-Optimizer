@@ -7,7 +7,7 @@ A real-time, local web dashboard that tracks your Steam achievement progress. It
 
 Built with **Python (Flask)**, **HTML/CSS**, and **JavaScript**.
 ---
-## ✨ Features
+## Features
 
 * **Real-Time Tracking:** Polls the Steam API to detect changes while you play.
 * **Optimal Route Algorithm:** Sorts incomplete achievements by "Global Rarity," suggesting the most common (easiest) achievements to target next.
@@ -15,7 +15,7 @@ Built with **Python (Flask)**, **HTML/CSS**, and **JavaScript**.
 * **Game Switcher:** Input any Steam App ID to instantly load data for a different game.
 * **Steam-Themed UI:** Dark mode interface inspired by the Steam client.
 ---
-## 🛠️ Prerequisites
+## Prerequisites
 
 Before running the app, you need the following:
 
@@ -24,7 +24,7 @@ Before running the app, you need the following:
 3.  **Your Steam ID (64-bit):** [Find it here](https://steamid.io/).
 4.  **Public Profile:** Your Steam Privacy settings for "Game Details" must be set to **Public**.
 ---
-## 📦 Installation
+## Installation
 
 1.  **Clone the repository:**
     ```bash
@@ -60,7 +60,7 @@ Before running the app, you need the following:
     * Find the App ID in the Steam Store URL (e.g., for *Elden Ring*, the URL is `store.steampowered.com/app/1245620`, so the ID is `1245620`).
     * Enter `1245620` into the dashboard and click **Load Game**.
 ---
-## 📂 Project Structure
+## Project Structure
 
 ```text
 steam_tracker/
