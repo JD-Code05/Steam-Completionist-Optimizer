@@ -167,3 +167,10 @@ button:hover {
 .toast.hidden {
     transform: translateY(200%);
 }
+
+#steamIdInput,
+#searchInput {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
