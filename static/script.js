@@ -1,7 +1,24 @@
 let currentAppId = '1245620'; 
+let currentSteamId = 'YOUR_STEAM_64_ID_HERE'; 
 let knownAchievements = new Set();
 let firstRun = true;
 let refreshInterval; 
+
+function updateProfile() {
+    const inputVal = document.getElementById('steamIdInput').value;
+    
+    if (inputVal.length > 10) {
+        currentSteamId = inputVal;
+        
+        const titleText = document.getElementById('gameTitle').innerText;
+        const cleanGameName = titleText.replace('Currently Tracking: ', '');
+
+        loadGameData(currentAppId, cleanGameName);
+        alert("Profile Updated! Now tracking this user.");
+    } else {
+        alert("Please enter a valid Steam ID64 (starts with 765...)");
+    }
+}
 
 async function searchGames() {
     const query = document.getElementById('searchInput').value;
@@ -31,6 +48,8 @@ async function searchGames() {
                 currentAppId = game.id;
                 firstRun = true; 
                 knownAchievements.clear();
+                
+                // Load data for new game
                 loadGameData(game.id, game.name);
                 
                 // Clear search
@@ -46,20 +65,22 @@ async function searchGames() {
     }
 }
 
+// 3. Load Game Data (Updated to use Steam ID)
 async function loadGameData(appId, gameName) {
     if (gameName) {
         document.getElementById('gameTitle').innerHTML = `Currently Tracking: <span style="color: #66c0f4;">${gameName}</span>`;
     }
 
     try {
-        const response = await fetch(`/api/data?app_id=${appId}`);
+        // UPDATED: Now sends BOTH app_id AND steam_id
+        const response = await fetch(`/api/data?app_id=${appId}&steam_id=${currentSteamId}`);
         const data = await response.json();
 
         const list = document.getElementById('achievementsList');
         list.innerHTML = ''; 
 
         if (data.length === 0) {
-            list.innerHTML = '<p>No achievements found (or profile is private).</p>';
+            list.innerHTML = '<p>No achievements found. (Profile might be private, or game not owned).</p>';
             return;
         }
 
@@ -67,7 +88,6 @@ async function loadGameData(appId, gameName) {
 
         data.forEach((ach, index) => {
             const card = document.createElement('div');
-
             card.className = `achievement-card ${ach.achieved ? 'achieved' : ''}`;
 
             if (!ach.achieved && index < (completedCount + 3)) {
@@ -117,14 +137,17 @@ function showToast(title, desc) {
     }, 5000);
 }
 
+// Allow Enter key for search
 document.getElementById('searchInput').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         searchGames();
     }
 });
 
+// Start the app
 loadGameData(currentAppId, 'Elden Ring');
 
+// Auto-refresh logic
 clearInterval(refreshInterval);
 refreshInterval = setInterval(() => {
     loadGameData(currentAppId);

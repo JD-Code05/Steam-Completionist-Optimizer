@@ -5,12 +5,15 @@ app = Flask(__name__)
 
 # CONFIGURATION
 STEAM_API_KEY = 'YOUR_STEAM_API_KEY_HERE'
-STEAM_USER_ID = 'YOUR_STEAM_64_ID_HERE'
+DEFAULT_STEAM_ID = 'YOUR_STEAM_64_ID_HERE'
 
-def fetch_steam_data(app_id):
+def fetch_steam_data(app_id, steam_id):
     try:
-        player_url = f"http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid={app_id}&key={STEAM_API_KEY}&steamid={STEAM_USER_ID}"
+        player_url = f"http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid={app_id}&key={STEAM_API_KEY}&steamid={steam_id}"
         player_res = requests.get(player_url).json()
+
+        if 'playerstats' not in player_res or 'achievements' not in player_res['playerstats']:
+            return []
 
         global_url = f"http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid={app_id}"
         global_res = requests.get(global_url).json()
@@ -42,8 +45,10 @@ def index():
 
 @app.route('/api/data')
 def get_data():
-    app_id = request.args.get('app_id', '1245620') # Default Steam Game ID
-    data = fetch_steam_data(app_id)
+    app_id = request.args.get('app_id', '1245620') 
+    steam_id = request.args.get('steam_id', DEFAULT_STEAM_ID)
+
+    data = fetch_steam_data(app_id, steam_id)
     return jsonify(data)
 
 @app.route('/api/search')
@@ -63,6 +68,7 @@ def search_game():
     except Exception as e:
         print(f"Search Error: {e}")
         return jsonify([])
+    
 if __name__ == '__main__':
     app.run(debug=True)
 

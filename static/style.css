@@ -1,127 +1,163 @@
 body {
-    background-color: #1b2838;
-    color: #c7d5e0;
-    font-family: sans-serif;
+    background: radial-gradient(circle at top, #1a1a2e 0%, #16213e 40%, #0f0f1a 100%);
+    color: #e0e0e0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 900px; margin: 0 auto;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); 
+    font-weight: 300; 
+    letter-spacing: 1px;
+}
+
+.controls {
+    position: relative;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.05); 
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+input[type="text"] {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #4a4a6a;
+    color: #fff;
+    padding: 12px;
+    border-radius: 25px; 
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #a68eff; 
+    box-shadow: 0 0 15px rgba(166, 142, 255, 0.3);
+}
+
+button {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); 
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 117, 252, 0.6);
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-.controls {
-    position: relative;
-    margin-bottom: 20px;
+    gap: 20px;
 }
 
 .achievement-card {
-    background: #171a21;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 5px solid #444;
+    background: rgba(30, 30, 50, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #4a4a6a; 
     overflow: hidden;
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.achievement-card:hover {
+    transform: translateY(-3px);
 }
 
 .achievement-card.achieved {
-    border-left-color: #66c0f4;
-    opacity: 0.6;
+    border-left-color: #00d2ff; 
+    background: rgba(0, 210, 255, 0.05);
+    opacity: 0.7;
 }
 
 .achievement-card.recommended {
-    border-left-color: #a4d007; 
-    background: #2a3f5a;
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-input[type="text"] {
-    background-color: #2a475e;
-    border: 1px solid #000;
-    color: #fff;
-    padding: 10px;
-    width: 60%; /* Adjust width */
-    border-radius: 3px;
-    font-size: 16px;
-}
-
-input[type="text"]:focus {
-    outline: none;
-    background-color: #3e6686;
-}
-
-button {
-    background: linear-gradient( to bottom, #a4d007 5%, #536904 95%);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
-}
-
-button:hover {
-    background: linear-gradient( to bottom, #b6e608 5%, #6b8705 95%);
+    border-left-color: #ffd700; 
+    background: linear-gradient(145deg, rgba(50, 50, 80, 0.9), rgba(30, 30, 50, 0.9));
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(166, 142, 255, 0.2); 
+    border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 .progress-container {
-    background: #000;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     margin: 20px 0;
+    overflow: hidden;
+    height: 25px;
 }
 
 .progress-bar {
-    background: #66c0f4;
-    height: 25px;
-    border-radius: 10px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5); 
+    height: 100%;
     text-align: center;
-    color: #000;
+    line-height: 25px;
+    color: #fff;
     font-weight: bold;
     width: 0%;
-    transition: width 0.5s;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px #00d2ff; 
+}
+
+
+#searchResults {
+    border: 1px solid #4a4a6a;
+    max-width: 400px;
+    margin-top: 10px;
+    background: #16213e;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.result-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #b0b0d0;
+    transition: background 0.2s;
+}
+
+.result-item:hover {
+    background-color: #2a2a4a;
+    color: #fff;
 }
 
 .toast {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #d4af37;
-    color: #000;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(20, 20, 35, 0.95);
+    color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    transition: transform 0.3s ease-in-out;
-    z-index: 100;
+    border-radius: 12px;
+    border-left: 5px solid #ffd700; 
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 2000;
+    backdrop-filter: blur(10px);
 }
 
 .toast.hidden {
     transform: translateY(200%);
-}
-
-#searchResults {
-    border: 1px solid #444;
-    max-width: 400px;
-    margin-top: 5px;
-    background: #222;
-    position: absolute;
-    z-index: 1000;
-}
-
-.result-item {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #333;
-    color: #eee;
-}
-
-.result-item:hover {
-    background-color: #444;
 }
