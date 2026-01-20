@@ -1,5 +1,5 @@
 let currentAppId = '12210';
-let currentSteamId = '76561198979373921';
+let currentSteamId = 'STEAM_ID_HERE';
 let knownAchievements = new Set();
 let firstRun = true;
 let refreshInterval;
