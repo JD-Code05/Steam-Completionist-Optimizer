@@ -4,8 +4,8 @@ import requests
 app = Flask(__name__)
 
 STEAM_API_KEY = 'YOUR_STEAM_API_KEY_HERE'
-DEFAULT_STEAM_ID = 'YOUR_STEAM_ID_HERE'
-DEFAULT_APP_ID = '12210' 
+DEFAULT_STEAM_ID = 'YOUR_STEAM_ID_HERE' 
+DEFAULT_APP_ID = '12210'
 
 def fetch_steam_data(app_id, steam_id):
     try:
@@ -23,6 +23,24 @@ def fetch_steam_data(app_id, steam_id):
         player_achievements = player_res['playerstats']['achievements']
         print(f"✅ SUCCESS: Found {len(player_achievements)} achievements for AppID {app_id}")
 
+        schema_map = {}
+        try:
+            schema_url = (
+                f"http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/"
+                f"?key={STEAM_API_KEY}&appid={app_id}&l=english"
+            )
+            schema_res = requests.get(schema_url).json()
+
+            if 'game' in schema_res and 'availableGameStats' in schema_res['game']:
+                stats = schema_res['game']['availableGameStats']['achievements']
+                for item in stats:
+                    schema_map[item['name']] = {
+                        'title': item.get('displayName', item['name']),
+                        'desc': item.get('description', 'No description available')
+                    }
+        except Exception:
+            print(f"⚠️ Schema Error: {e}")
+            
         global_map = {}
         try:
             global_url = (
@@ -38,10 +56,12 @@ def fetch_steam_data(app_id, steam_id):
 
         processed_data = []
         for ach in player_achievements:
+            api_name = ach['apiname']
+            pretty_info = schema_map.get(api_name, {})
             processed_data.append({
-                'apiname': ach['apiname'],
-                'name': ach.get('name') or ach['apiname'],
-                'description': ach.get('description') or 'No description available',
+                'apiname': api_name,
+                'name': pretty_info.get('title', ach.get('name', api_name)),
+                'description': pretty_info.get('desc', ach.get('description', 'No description available')),
                 'achieved': int(ach['achieved']),  
                 'rarity': float(global_map.get(ach['apiname'], 0.0))
             })
