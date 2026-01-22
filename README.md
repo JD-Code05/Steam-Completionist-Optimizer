@@ -54,7 +54,6 @@ cd steam-completionist-optimizer
 
 ### 2. Install Dependencies  
 ```Bash
-# Create a virtual environment (Optional but recommended)
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
