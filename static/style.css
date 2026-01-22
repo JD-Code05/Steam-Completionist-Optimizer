@@ -24,11 +24,12 @@ h1 {
     letter-spacing: 1.5px;
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.6); 
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .controls {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.05); 
     padding: 20px;
     border-radius: 15px;
@@ -78,7 +79,7 @@ button:hover {
 
 .achievement-card {
     background: rgba(30, 30, 50, 0.6);
-    padding: 20px;
+    padding: 12px;
     border-radius: 12px;
     border-left: 4px solid #4a4a6a; 
     overflow: hidden;
@@ -108,7 +109,7 @@ button:hover {
 .progress-container {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    margin: 20px 0;
+    margin: 0 0 10px 0;
     overflow: hidden;
     height: 25px;
 }
@@ -181,4 +182,9 @@ button:hover {
     flex: 1;
     width: 100%;
     min-width: 0;
+}
+
+h2 {
+    margin-top: 5px;   
+    margin-bottom: 10px;
 }
