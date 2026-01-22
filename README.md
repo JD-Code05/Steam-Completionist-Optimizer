@@ -10,7 +10,7 @@
 
 <br />
 
-<img src="project_Dashboard.jpg" alt="Steam Completionist Optimizer - Project Screenshot" width="800"/>
+<img src="Project_Dashboard.jpg" alt="Steam Completionist Optimizer - Project Screenshot" width="800"/>
 
 <br />
 
