@@ -39,7 +39,7 @@ steam-completionist-optimizer/
 ├── templates/
 │   └── index.html        # Frontend HTML Structure
 └── static/
-    ├── style.css         # Styling (Steam Dark Theme & Animations)
+    ├── style.css         # Styling (Lunar Color Palette and Animations)
     └── script.js         # Frontend Logic (Polling, Search, & UI Updates)
 ```
 
