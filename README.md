@@ -41,3 +41,8 @@ steam-completionist-optimizer/
 └── static/
     ├── style.css         # Styling (Steam Dark Theme & Animations)
     └── script.js         # Frontend Logic (Polling, Search, & UI Updates)
+```
+
+---
+
+## Quick Start
