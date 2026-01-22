@@ -78,8 +78,8 @@ The dashboard will start at http://127.0.0.1:5000
 ---  
 
 ## Challenges Solved    
-```text
-Challenge 1: Older games (like Grand Theft Auto IV) do not send readable titles via the standard GetPlayerAchievements endpoint. Instead, they return internal developer codes (e.g., E1INTRO, HALF_MILLION), making the dashboard unreadable.
 
-Solution: I implemented a secondary fetch sequence in Python. The backend first retrieves the user's progress, then queries the Steam Game Schema to create a translation map. This map dynamically replaces the raw codes with localized English titles and descriptions before sending the JSON payload to the frontend, ensuring a professional user experience for legacy titles. Now it went from internal developer codes to its real achievement title (e,g., from OPENEDALDERNEY to Full Exploration).
-```
+> Challenge 1: Older games (like Grand Theft Auto IV) do not send readable titles via the standard GetPlayerAchievements endpoint. Instead, they return internal developer codes (e.g., E1INTRO, HALF_MILLION), making the dashboard unreadable.
+>
+> Solution: I implemented a secondary fetch sequence in Python. The backend first retrieves the user's progress, then queries the Steam Game Schema to create a translation map. This map dynamically replaces the raw codes with localized English titles and descriptions before sending the JSON payload to the frontend, ensuring a professional user experience for legacy titles. Now it went from internal developer codes to its real achievement title (e,g., from OPENEDALDERNEY to Full Exploration).
+
