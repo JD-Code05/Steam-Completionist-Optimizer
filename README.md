@@ -45,4 +45,32 @@ steam-completionist-optimizer/
 
 ---
 
-## Quick Start
+## Quick Start  
+### 1. Clone the Repository  
+```text
+git clone [https://github.com/yourusername/steam-completionist-optimizer.git](https://github.com/yourusername/steam-completionist-optimizer.git)
+cd steam-completionist-optimizer
+```
+
+### 2. Install Dependencies  
+```text
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+# Install required packages
+pip install flask requests
+```
+
+### 3. Configuration  
+Open Completionist.py in your text editor and update the constants at the top:  
+```text
+# Completionist.py
+
+STEAM_API_KEY = 'YOUR_ACTUAL_STEAM_API_KEY'
+DEFAULT_STEAM_ID = 'YOUR_ACTUAL_STEAM_ID'
+```
+
+### 4. Run the Application  
+```text
+python Completionist.py
+```
+    The dashboard will start at http://127.0.0.1:5000
