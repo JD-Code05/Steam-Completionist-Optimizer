@@ -8,11 +8,11 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
-<br>
+<br />
 
-<img src="Project_Dashboard.jpg" alt="Steam Completionist Dashboard" width="800" style="border-radius: 10px; box-shadow: 0px 0px 20px rgba(0,0,0,0.5);">
+<img src="project_Dashboard.jpg" alt="Steam Completionist Optimizer - Project Screenshot" width="800"/>
 
-<br><br>
+<br />
 
 A real-time, local web dashboard that tracks your Steam achievement progress. It analyzes global player statistics to suggest the **"Optimal Route"** (easiest achievements first) and provides visual "Toast" notifications when you unlock an achievement in-game.
 
