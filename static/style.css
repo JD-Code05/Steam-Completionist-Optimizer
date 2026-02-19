@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 body {
-    background: radial-gradient(circle at top, #1a1a2e 0%, #16213e 40%, #0f0f1a 100%);
+    background: #121212; 
     color: #e0e0e0; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'JetBrains Mono NL', 'JetBrains Mono', monospace;
+    font-variant-ligatures: none; 
     margin: 0;
     padding: 20px;
     min-height: 100vh;
@@ -13,7 +15,8 @@ body {
 }
 
 h2, h3 {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); 
+    text-shadow: none; 
+    color: #cccccc;
     font-weight: 300; 
     letter-spacing: 1px;
 }
@@ -22,7 +25,7 @@ h1 {
     color: #ffffff;        
     font-weight: 500;      
     letter-spacing: 1.5px;
-    text-shadow: 0 0 25px rgba(255, 255, 255, 0.6); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
     margin-bottom: 10px;
     text-align: center;
 }
@@ -30,31 +33,32 @@ h1 {
 .controls {
     position: relative;
     margin-bottom: 10px;
-    background: rgba(255, 255, 255, 0.05); 
+    background: #1e1e1e; 
     padding: 20px;
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    border: 1px solid #333333;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 input[type="text"] {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #4a4a6a;
+    background-color: #121212;
+    border: 1px solid #333333;
     color: #fff;
     padding: 12px;
     border-radius: 25px; 
     font-size: 16px;
     transition: all 0.3s ease;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #a68eff; 
-    box-shadow: 0 0 15px rgba(166, 142, 255, 0.3);
+    border-color: #777777; 
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5), 0 0 8px rgba(255,255,255,0.05);
 }
 
 button {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); 
+    background: linear-gradient(135deg, #555555 0%, #333333 100%); 
     color: white;
     padding: 10px 25px;
     border: none;
@@ -63,12 +67,12 @@ button {
     font-size: 16px;
     font-weight: 600;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 117, 252, 0.6);
+    box-shadow: 2px 6px 15px rgba(0,0,0,0.6);
 }
 
 .grid {
@@ -78,14 +82,13 @@ button:hover {
 }
 
 .achievement-card {
-    background: rgba(30, 30, 50, 0.6);
-    padding: 12px;
+    background: #1e1e1e;
+    padding: 12px; 
     border-radius: 12px;
-    border-left: 4px solid #4a4a6a; 
+    border-left: 4px solid #444444; 
     overflow: hidden;
-    backdrop-filter: blur(4px);
     transition: transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
 }
 
 .achievement-card:hover {
@@ -93,29 +96,31 @@ button:hover {
 }
 
 .achievement-card.achieved {
-    border-left-color: #00d2ff; 
-    background: rgba(0, 210, 255, 0.05);
+    border-left-color: #666666; 
+    background: #151515;
     opacity: 0.7;
 }
 
 .achievement-card.recommended {
-    border-left-color: #ffd700; 
-    background: linear-gradient(145deg, rgba(50, 50, 80, 0.9), rgba(30, 30, 50, 0.9));
+    border-left-color: #aaaaaa; 
+    background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
     transform: scale(1.03);
-    box-shadow: 0 0 20px rgba(166, 142, 255, 0.2); 
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.5); 
+    border: 1px solid #444444;
 }
 
 .progress-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: #121212;
+    border: 1px solid #2a2a2a;
     border-radius: 20px;
     margin: 0 0 10px 0;
     overflow: hidden;
     height: 25px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5); 
+    background: linear-gradient(90deg, #555555, #999999); 
     height: 100%;
     text-align: center;
     line-height: 25px;
@@ -123,17 +128,17 @@ button:hover {
     font-weight: bold;
     width: 0%;
     transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 10px #00d2ff; 
+    box-shadow: none; 
 }
 
 
 #searchResults {
-    border: 1px solid #4a4a6a;
+    border: 1px solid #333333;
     width: 100%; 
     max-height: 300px; 
     overflow-y: auto; 
     margin-top: 5px;
-    background: #16213e;
+    background: #1e1e1e;
     border-radius: 10px;
     position: absolute;
     top: 100%; 
@@ -145,15 +150,15 @@ button:hover {
 .result-item {
     padding: 15px;
     cursor: pointer;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: #b0b0d0;
+    border-bottom: 1px solid #2a2a2a;
+    color: #aaaaaa;
     font-size: 14px;
-    background: #16213e;
+    background: #1e1e1e;
     transition: all 0.2s;
 }
 
 .result-item:hover {
-    background-color: #2a2a4a;
+    background-color: #2a2a2a;
     color: #fff;
     padding-left: 20px; 
 }
@@ -162,15 +167,14 @@ button:hover {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: rgba(20, 20, 35, 0.95);
+    background: #1e1e1e;
     color: #fff;
     padding: 20px;
     border-radius: 12px;
-    border-left: 5px solid #ffd700; 
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    border-left: 5px solid #aaaaaa; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     z-index: 2000;
-    backdrop-filter: blur(10px);
 }
 
 .toast.hidden {
@@ -187,4 +191,18 @@ button:hover {
 h2 {
     margin-top: 5px;   
     margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #121212; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333333; 
+    border-radius: 10px; 
+    border: 3px solid #121212; 
 }

@@ -17,11 +17,11 @@ def fetch_steam_data(app_id, steam_id):
         player_res = requests.get(player_url).json()
 
         if 'playerstats' not in player_res or 'achievements' not in player_res['playerstats']:
-            print(f"❌ No stats found for AppID {app_id}")
+            print(f"No stats found for AppID {app_id}")
             return []
 
         player_achievements = player_res['playerstats']['achievements']
-        print(f"✅ SUCCESS: Found {len(player_achievements)} achievements for AppID {app_id}")
+        print(f"SUCCESS: Found {len(player_achievements)} achievements for AppID {app_id}")
 
         schema_map = {}
         try:
@@ -39,7 +39,7 @@ def fetch_steam_data(app_id, steam_id):
                         'desc': item.get('description', 'No description available')
                     }
         except Exception:
-            print(f"⚠️ Schema Error: {e}")
+            print(f"Schema Error: {e}")
             
         global_map = {}
         try:
@@ -52,7 +52,7 @@ def fetch_steam_data(app_id, steam_id):
             ach_list = global_res.get('achievementpercentages', {}).get('achievements', [])
             global_map = {x['name']: x['percent'] for x in ach_list}
         except Exception:
-            print("⚠️ Could not fetch global rarity stats.")
+            print("Could not fetch global rarity stats.")
 
         processed_data = []
         for ach in player_achievements:
@@ -71,7 +71,7 @@ def fetch_steam_data(app_id, steam_id):
         return processed_data
 
     except Exception as e:
-        print(f"🔥 Critical Error fetching data: {e}")
+        print(f"Critical Error fetching data: {e}")
         return []
 
 @app.route('/')

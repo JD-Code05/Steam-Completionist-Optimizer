@@ -1,5 +1,5 @@
 let currentAppId = '12210';
-let currentSteamId = 'STEAM_ID_HERE';
+let currentSteamId = 'YOUR_STEAM_ID_HERE';
 let knownAchievements = new Set();
 let firstRun = true;
 let refreshInterval;
@@ -64,10 +64,16 @@ async function loadGameData(appId, gameName) {
         }
 
         card.innerHTML += `
-            <strong>${ach.achieved ? '✅' : '🔒'} ${ach.name}</strong>
-            <span style="float:right;">${ach.rarity.toFixed(1)}%</span>
-            <br>
-            <small>${ach.description}</small>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 5px;">
+                
+                <div style="display: flex; align-items: flex-start; gap: 6px; flex: 1;">
+                    <span style="flex-shrink: 0;">${ach.achieved ? '✅' : '🔒'}</span>
+                    <strong style="word-break: break-word; line-height: 1.2;">${ach.name}</strong>
+                </div>
+                
+                <span style="white-space: nowrap;">${ach.rarity.toFixed(1)}%</span>
+            </div>
+            <small style="display: block; color: #aaaaaa; line-height: 1.4;">${ach.description}</small>
         `;
 
         list.appendChild(card);
