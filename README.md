@@ -83,3 +83,8 @@ The dashboard will start at http://127.0.0.1:5000
 >
 > *Solution:* I implemented a secondary fetch sequence in Python. The backend first retrieves the user's progress, then queries the Steam Game Schema to create a translation map. This map dynamically replaces the raw codes with localized English titles and descriptions before sending the JSON payload to the frontend, ensuring a professional user experience for legacy titles. Now it went from internal developer codes to its real achievement title (e.g., from OPENEDALDERNEY to Full Exploration).
 
+``API Unreliability & The 0.0% Bug``
+> *Challenge:* Steam's official `GetGlobalAchievementPercentagesForApp` JSON API is notoriously unreliable for certain legacy games (like *Grand Theft Auto IV*), frequently returning empty datasets. This caused the application to default all achievement rarities to `0.0%`, completely breaking the "Optimal Route" sorting algorithm.
+>
+> *Solution:* I engineered a hybrid failover system using `BeautifulSoup4`. The backend attempts to fetch the official JSON first for speed and efficiency. If it detects an empty response, the system automatically pivots to an HTML scraper that targets the public Steam Community achievement pages. It parses the DOM elements (`.achieveRow`, `.achievePercent`) to extract the exact rarity numbers manually. This guarantees the sorting algorithm always has accurate data to guide the user, completely bypassing Steam's backend API outages.
+
